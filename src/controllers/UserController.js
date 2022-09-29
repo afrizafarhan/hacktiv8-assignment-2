@@ -8,15 +8,15 @@ class UserController {
   constructor() {
     this._users = fs.readFileSync(path.resolve(`${__dirname}/../data/users.json`));
     this._userService = new UserService();
-    this.getUserDetailByUsername = this.getUserDetailByUsername.bind(this);
+    this.getUserDetailById = this.getUserDetailById.bind(this);
   }
   
-  async getUserDetailByUsername(req, res) {
+  async getUserDetailById(req, res) {
     try {
-      const { username } = req.params
-      const user = this._userService.getUserByUsername(username);
+      const { id } = req.params
+      const user = this._userService.getUserById(id);
       if(!user) {
-        throw new NotFoundError(`User dengan ${username} tidak ditemukan`);
+        throw new NotFoundError(`User dengan ${id} tidak ditemukan`);
       } 
       res.status(200).send({
         status: 'success',

@@ -13,7 +13,7 @@ const authentication = async (req, res, next) => {
          const decodedToken = TokenManager.verifyAccessToken(token.split(' ')[1]);
          if(decodedToken) {
             const userService = new UserService();
-            const user = userService.getUserByUsername(decodedToken.data);
+            const user = userService.getUserById(decodedToken.data);
             if (user) {
                res.locals.user = user;
                next();

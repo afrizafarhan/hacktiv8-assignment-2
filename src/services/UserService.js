@@ -9,6 +9,10 @@ class UserService {
     const { users } = JSON.parse(this._users);
     return users.find(user => user.username === username);
   }
+  getUserById(id) {
+    const { users } = JSON.parse(this._users);
+    return users.find(user => user.id === id);
+  }
 }
 
 module.exports = UserService;

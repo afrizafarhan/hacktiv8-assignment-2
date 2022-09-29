@@ -6,6 +6,7 @@ const AuthValidator = require('../validator/AuthValidator');
 const NotFoundError = require('../exeptions/NotFoundError');
 const InvariantError = require('../exeptions/InvariantError');
 const ClientError = require('../exeptions/ClientError');
+const { nanoid } = require('nanoid');
 
 class AuthController {
   constructor() {
@@ -28,7 +29,7 @@ class AuthController {
       if (!match) {
         throw new InvariantError('Username atau Password yang dimasukan salah');
       } else {
-        const token = TokenManager.generateAccessToken(username);
+        const token = TokenManager.generateAccessToken(user.id);
         const accessToken = JSON.parse(this._accessTokens);
         accessToken.jwt.push(token);
         fs.writeFileSync(path.resolve(`${__dirname}/../data/jwt.json`), Buffer.from(JSON.stringify(accessToken)));
@@ -64,6 +65,7 @@ class AuthController {
       }
       const hashedPassword = await bcrypt.hash(password, 10);
       usersData.users.push({
+        id: `user-${nanoid(16)}`,
         username,
         password: hashedPassword,
         name
