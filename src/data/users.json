@@ -1,9 +1,1 @@
-{
-  "users": [
-    {
-      "username": "hacktiv8",
-      "password": "$2b$10$qcH9Af6X./mHpe6ENBD9h.O7fANzYNpEr8P2o72hKImsh76CnIU2y",
-      "name": "Hacktiv 8"
-    }
-  ]
-}
+{"users":[{"username":"hacktiv8","password":"$2b$10$qcH9Af6X./mHpe6ENBD9h.O7fANzYNpEr8P2o72hKImsh76CnIU2y","name":"Hacktiv 8"},{"username":"farhan","password":"$2b$10$tDBYAhL8vf7SGu7UC7HokeyZxVixveosALnvp9DP2iMTUGxXFA4gi","name":"farhan"},{"username":"farhan3","password":"$2b$10$nRftiHYqG4lXiPBLF4rLb.G0zYI.7cOTDVRdXCi1tAga8EVHtAHFW","name":"farhan"}]}
